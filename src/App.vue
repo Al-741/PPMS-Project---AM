@@ -22,6 +22,11 @@ export default {
       showPopup: false,
     };
   },
+  methods: {
+  toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode;
+      document.body.classList.toggle('dark-mode', this.isDarkMode);
+    },}
 };
 </script>
 
@@ -29,11 +34,11 @@ export default {
 
 <!-------------------------------------->
 <template>
-  <div id="app">
-    <HeaderComponent />
-    <BodyComponent @open-popup="showPopup = true" />
+  <div id="app" :class="{'dark-mode': isDarkMode}">
+    <HeaderComponent :isDarkMode="isDarkMode"  />
+    <BodyComponent @open-popup="showPopup = true" :isDarkMode="isDarkMode" /> 
     <PopupComponent :visible="showPopup" @close="showPopup = false" />
-    <FooterComponent />
+    <FooterComponent :isDarkMode="isDarkMode" @toggleDarkMode="toggleDarkMode" />
   </div>
 </template>
 
@@ -42,24 +47,24 @@ export default {
 
 <!-------------------------------------->
 <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  padding-bottom: 60px; /* Make space for footer */
-  position: relative;
-  min-height: 100vh;
-}
-
+/* General Styles */
 #app {
   text-align: center;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
-main {
-  padding: 20px;
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
 }
 
-main section {
-  margin: 40px 0;
-}
+
 </style>

@@ -1,38 +1,48 @@
 :root {
+  --font-color: #213547;
+  --bg-color: #ffffff;
+  --link-color: #646cff;
+  --link-hover-color: #535bf2;
+  --button-bg-color: #f9f9f9;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #fafafa;
-
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.4em;
   line-height: 1.1;
+  margin: 1rem 0;
+}
+
+a {
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--link-hover-color);
 }
 
 button {
@@ -42,38 +52,42 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--button-bg-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: var(--link-color);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
 .card {
-  padding: 2em;
+  padding: 1.5em;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .card {
+    padding: 1em;
+  }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Dark Mode Styles */
+.dark-mode {
+  --font-color: rgba(255, 255, 255, 0.87);
+  --bg-color: #1e1e1e;
+  --link-color: #66b2ff;
+  --link-hover-color: #5097e0;
+  --button-bg-color: #2a2a2a;
+
+  background-color: var(--bg-color);
+  color: var(--font-color);
 }
