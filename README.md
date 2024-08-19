@@ -74,7 +74,7 @@ Make sure you have the following installed:
 4. Run the development server:
 
 ```bash
-   npm run serve
+   npm run dev
 ``` 
 
 5. Open the project in you browser:
