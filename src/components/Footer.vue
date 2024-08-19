@@ -1,15 +1,29 @@
+<!-- FOOTER COMPONENTS -->
+
+<!-------------------------------------->
+<template>
+  <footer>
+    <img src="../assets/logo.png" alt="PPMS_Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="#terms">Terms of Service</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+    <p>&copy; PPMS Exercise Alice Miermon</p>
+ </footer>
+</template>
 
 
-<!-- FOOTER COMPONENT SCRYPT -->
 
+<!-------------------------------------->
 <script>
 export default {
+  name: 'FooterComponent',
   props: {
-    isDarkMode: Boolean,
-  },
-  methods: {
-    toggleDarkMode() {
-      this.$emit('toggleDarkMode');
+    isDarkMode: {
+      type: Boolean,
+      default: false,
     },
   },
 };
@@ -18,53 +32,48 @@ export default {
 
 
 <!-------------------------------------->
-<template>
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2024 Your Company. All rights reserved.</p>
-      <button @click="toggleDarkMode" class="dark-mode-toggle">
-        <img :src="isDarkMode ? '..\assets\sun.svg' : '..\assets\moon.svg'" :alt="isDarkMode ? 'Light Mode' : 'Dark Mode'" />
-      </button>
-    </div>
-  </footer>
-</template>
-
-
-
 <style scoped>
 footer {
   padding: 20px;
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-top: 1rem;
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--title-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer p {
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+footer nav ul {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color:#333;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
 }
 
-/* Ensure the content within the footer is aligned and visible */
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+footer nav ul li a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 14px;
+  transition: color 0.3s ease;
 }
 
-/* Dark Mode Toggle Button Styles */
-.dark-mode-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
+footer nav ul li a:hover {
+  color: var(--link-hover-color);
 }
 
-.dark-mode-toggle img {
-  width: 30px;
-  height: 30px;
+.logo{
+  height: 40px;
+  width: auto;
+  margin-right: auto;
 }
-
-/* Dark Mode Styles in Footer */
-.dark-mode footer {
-  background-color: #333;
-  color: #fff;
+.dark_mode footer {
+  background-color: var(--dark-body-bg-color);
+  color: var(--footer-dark-title-color);
 }
 </style>

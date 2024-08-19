@@ -1,8 +1,6 @@
+<!-- APP -->
 
-
-<!-- APP SCRIPT -->
-
-
+<!-------------------------------------->
 <script>
 import HeaderComponent from './components/Header.vue';
 import BodyComponent from './components/Body.vue';
@@ -20,13 +18,25 @@ export default {
   data() {
     return {
       showPopup: false,
+      isDarkMode: false,
     };
   },
   methods: {
   toggleDarkMode() {
-      this.isDarkMode = !this.isDarkMode;
-      document.body.classList.toggle('dark-mode', this.isDarkMode);
-    },}
+    this.isDarkMode = !this.isDarkMode;
+    if (this.isDarkMode) {
+      document.documentElement.classList.add('dark_mode');
+    } else {
+      document.documentElement.classList.remove('dark_mode');
+    }
+  },
+  },
+  mounted() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      this.isDarkMode = true;
+      this.toggleDarkMode(true);
+    }
+  },
 };
 </script>
 
@@ -34,11 +44,11 @@ export default {
 
 <!-------------------------------------->
 <template>
-  <div id="app" :class="{'dark-mode': isDarkMode}">
-    <HeaderComponent :isDarkMode="isDarkMode"  />
+  <div id="app">
+    <HeaderComponent :isDarkMode="isDarkMode" @update:isDarkMode="toggleDarkMode" />
     <BodyComponent @open-popup="showPopup = true" :isDarkMode="isDarkMode" /> 
     <PopupComponent :visible="showPopup" @close="showPopup = false" />
-    <FooterComponent :isDarkMode="isDarkMode" @toggleDarkMode="toggleDarkMode" />
+    <FooterComponent :isDarkMode="isDarkMode" />
   </div>
 </template>
 
@@ -47,24 +57,57 @@ export default {
 
 <!-------------------------------------->
 <style>
-/* General Styles */
 #app {
-  text-align: center;
-  background-color: #f4f4f4;
-  color: #333;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  min-height: 100vh;
+  font-size: 14px; 
+  padding: 0 1rem; 
+}
+
+header, footer {
+  flex-shrink: 0;
+}
+
+body, #app {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--body-bg-color);
+  transition: background-color 0.3s ease;
 }
 
 /* Dark Mode Styles */
-.dark-mode {
-  background-color: #1e1e1e;
-  color: #ffffff;
+
+.dark_mode #app {
+  background-color: var(--dark-body-bg-color);
+  
 }
+
+/* Responsive */
+@media (min-width: 1200px) {
+  #app {
+    font-size: 14px;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  #app {
+    font-size: 12px; 
+    padding: 0 1rem;
+  }
+}
+
+
+
 
 
 </style>
