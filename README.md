@@ -2,7 +2,9 @@
 
 ## Overview
 
-This project is a front-end web application that demonstrates my skills in CSS, user experience design, and modern web development techniques. The project consists of a homepage for the PPMS (Project and Portfolio Management System) with a dark mode feature. The goal was to create a user-friendly and accessible interface adhering to WCAG accessibility standards.
+This project is a front-end web application that demonstrates my skills in CSS, user experience design, and modern web development techniques. 
+The project consists of a homepage for the PPMS (Project and Portfolio Management System) with a dark mode feature. 
+The goal was to create a user-friendly and accessible interface adhering to WCAG accessibility standards.
 
 ## Features
 
@@ -45,7 +47,55 @@ PPMS-Homepage-Project/
 ## Installation and Setup
 Prerequisites
 Make sure you have the following installed:
+- Node.js (v14 or later)
+- Vue CLI
 
-Node.js (v14 or later)
-Vue CLI
-Steps to Run the Project
+
+## Steps to Run the Project
+1. **Clone the repository:**
+
+```bash
+   git clone <repository-url>
+``` 
+
+
+2. Navigate to the project directory:
+
+```bash
+   cd PPMS-Homepage-Project
+``` 
+
+3. Install dependencies:
+
+```bash
+   npm install
+``` 
+
+4. Run the development server:
+
+```bash
+   npm run serve
+``` 
+
+5. Open the project in you browser:
+
+The project will be running at http://localhost:8080/ by default.
+
+
+## Accessibility
+The design follows WCAG (Web Content Accessibility Guidelines) to ensure the homepage is accessible to all users, including those with disabilities. The project targets WCAG AAA compliance, with a focus on:
+
+- Color contrast for readability
+- Responsive design for usability on different devices
+- Keyboard navigation
+
+## Browser Compatibility
+The project is compatible with the latest versions of Mozilla Firefox and Google Chrome.
+
+## Notes
+- The customization feature in the body section is not functional but is considered in the design.
+- All links redirect to the homepage as the focus is on creating the homepage only.
+- All the sections are in the body to showcase what the user will see with all the options
+
+## License
+This project is an exercises.
