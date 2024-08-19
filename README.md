@@ -98,4 +98,4 @@ The project is compatible with the latest versions of Mozilla Firefox and Google
 - All the sections are in the body to showcase what the user will see with all the options
 
 ## License
-This project is an exercises.
+This project is an exercises for Stratocore Company.
